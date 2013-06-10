@@ -73,7 +73,7 @@ class RoomsController < ApplicationController
   private
   def config_opentok
     @API_KEY = OpentokDemo::Application.config.api_key
-    @API_SECRET = OpentokDemo::Application.config.initializers.secret_token
+    @API_SECRET = OpentokDemo::Application.config.secret_token
     
     if @opentok.nil?
       @opentok = OpenTok::OpenTokSDK.new @API_KEY, @API_SECRET

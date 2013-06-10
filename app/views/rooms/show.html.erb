@@ -1,0 +1,26 @@
+<% content_for :head do %>
+  <%= javascript_include_tag "opentok.js" %>
+  <%= javascript_include_tag "http://static.opentok.com/v0.91/js/TB.min.js" %>
+<% end %>
+
+<%= yield :head %>
+
+<script type="text/javascript">
+  var apiKey = '<%= @API_KEY %>'
+  var sessionId = '<%= @room.sessionId %>'
+  var token = '<%= @tok_token %>'
+</script>
+
+<p id="notice"><%= notice %></p>
+
+<p>
+  <b>Room Name:</b>
+  <%= @room.name %>
+</p>
+
+<input type="button" onclick="initialize()" value="Connect">
+
+<%= link_to 'Back', rooms_path %>
+
+<div id="publisherDiv"></div>
+
